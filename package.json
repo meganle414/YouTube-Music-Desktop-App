@@ -1,0 +1,43 @@
+{
+  "name": "youtube-music-desktop-app",
+  "version": "1.0.0",
+  "description": "YouTube Music Desktop App",
+  "main": "index.js",
+  "build": {
+    "appId": "io.github.meganle414.youtubemusicdesktopapp",
+    "productName": "YouTube Music Desktop App",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "index.js",
+      "preload.js"
+    ],
+    "directories": {
+      "output": "dist_electron"
+    }
+  },
+  "mac": {
+    "icon": "icon.icns",
+    "category": "public.app-category.music"
+  },
+  "win": {
+    "icon": "icon.ico"
+  },
+  "linux": {
+    "icon": "icon.png",
+    "category": "AudioVideo"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.0.2",
+    "electron-builder": "^25.0.5",
+    "electron-store": "^10.0.0"
+  }
+}

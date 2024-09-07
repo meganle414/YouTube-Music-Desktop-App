@@ -1,0 +1,28 @@
+[33mcommit 023ad5e674f8c5373b8c1404023b6847e983ea41[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 8f1841d c1c5520
+Author: Megan L <meganle414@gmail.com>
+Date:   Fri Sep 6 21:09:57 2024 -0700
+
+    Merge branch 'main' of https://github.com/meganle414/YouTube-Music-Desktop-App
+
+[33mcommit 8f1841d7b2e357f2015b5730591ef82c44b7903b[m
+Author: Megan L <meganle414@gmail.com>
+Date:   Fri Sep 6 20:51:00 2024 -0700
+
+    Initial commit
+
+[33mcommit c1c552046a8582cc14f25699f21d0e3085bb65e8[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Megan L <meganle414@gmail.com>
+Date:   Fri Sep 6 20:16:45 2024 -0700
+
+    Remove LFS tracking
+
+[33mcommit efc7aedc71f7107c62b71ac0944d5077f4e6a186[m
+Author: Megan L <meganle414@gmail.com>
+Date:   Fri Sep 6 20:12:53 2024 -0700
+
+    Uploading YouTube Music Desktop App and executables
+
+[33mcommit 009422c0ad5aba299e72f169855eaf5497e6ec0f[m
+Author: Megan L <meganle414@gmail.com>
+Date:   Fri Sep 6 20:13:00 2024 -0700
