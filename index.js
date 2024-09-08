@@ -1,4 +1,4 @@
-const { create } = require('domain');
+// const { create } = require('domain');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
@@ -18,8 +18,9 @@ function createWindow() {
         width: 1280,
         height: 800,
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
+            nodeIntegration: false,
+            contextIsolation: true,
+            enableRemoteModule: false,  // not sure if this one is necessary
             preload: path.join(__dirname, 'preload.js'),
         },
         autoHideMenuBar: true,
@@ -28,6 +29,7 @@ function createWindow() {
 
     // Load YouTube Music URL
     mainWindow.loadURL('https://music.youtube.com/');
+    mainWindow.webContents.openDevTools();
 
     // Restore volume settings
     const savedVolume = store.get('volume', 0.5);
@@ -43,7 +45,7 @@ function createWindow() {
 function initializeApp() {
     store = new Store();  // Initialize `Store` after it's imported
 
-    app.whenReady(createWindow());
+    app.whenReady().then(createWindow);
 
     // Save volume setting before app closes
     ipcMain.on('volume-changed', (event, volume) => {

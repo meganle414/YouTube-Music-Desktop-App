@@ -1,0 +1,13 @@
+directories:
+  output: dist_electron
+  buildResources: build
+appId: io.github.meganle414.youtubemusicdesktopapp
+productName: YouTube Music Desktop App
+files:
+  - filter:
+      - dist/**/*
+      - node_modules/**/*
+      - package.json
+      - index.js
+      - preload.js
+electronVersion: 32.0.2
