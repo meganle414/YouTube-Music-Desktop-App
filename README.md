@@ -18,7 +18,7 @@
 
 * An Electron.js desktop app for YouTube Music
 
-<img src="images/app.png">
+<img src="images/default.png">
 
 ### Built With
 
@@ -33,7 +33,7 @@
 
 Install the app by clicking on download next to releases on the right or click here
 
-![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/app.png?raw=true)
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/default.png?raw=true)
 
 
 <p align="right">(<a href="#youtube-music-desktop-app">back to top</a>)</p>
