@@ -8,6 +8,7 @@
     "productName": "YouTube Music Desktop App",
     "files": [
       "dist/**/*",
+      "node_modules/electron-store/**/*",
       "node_modules/**/*",
       "package.json",
       "index.js",
@@ -24,19 +25,26 @@
   "win": {
     "icon": "icon.ico",
     "target": [
-    {
-      "target": "nsis",
-      "arch": [
-        "x64"
-      ]
-    }
-  ],
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ]
+  },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowElevation": true,
-    "allowToChangeInstallationDirectory": true
-  }
+    "allowToChangeInstallationDirectory": true,
+    "runAfterFinish": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "deleteAppDataOnUninstall": true,
+    "installerIcon": "icon.ico",
+    "uninstallerIcon": "icon.ico",
+    "uninstallDisplayName": "YouTube Music Desktop App"
   },
   "linux": {
     "icon": "icon.png",
@@ -44,11 +52,14 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder --config electron-builder.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "electron-store": "^10.0.0"
+  },
   "devDependencies": {
     "electron": "^32.0.2",
     "electron-builder": "^25.0.5",

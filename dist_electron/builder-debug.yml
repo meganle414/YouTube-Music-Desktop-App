@@ -4,6 +4,7 @@ x64:
     - '!build{,/**/*}'
     - '!dist_electron{,/**/*}'
     - dist/**/*
+    - node_modules/electron-store/**/*
     - node_modules/**/*
     - package.json
     - index.js
@@ -18,6 +19,7 @@ x64:
   nodeModuleFilePatterns:
     - '**/*'
     - dist/**/*
+    - node_modules/electron-store/**/*
     - node_modules/**/*
     - package.json
     - index.js
@@ -98,7 +100,8 @@ nsis:
     !macroend
 
     !addplugindir /x86-unicode "C:\Users\moooo\AppData\Local\electron-builder\Cache\nsis\nsis-resources-3.4.1\plugins\x86-unicode"
-    !include "C:\Users\moooo\AppData\Local\Temp\t-Uu0Gw5\0-messages.nsh"
+    !include "C:\Users\moooo\AppData\Local\Temp\t-M8kpV3\1-messages.nsh"
+    !include "C:\Users\moooo\AppData\Local\Temp\t-M8kpV3\0-messages.nsh"
 
     Var newStartMenuLink
     Var oldStartMenuLink
