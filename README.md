@@ -31,7 +31,7 @@
 
 ### YouTube Music Desktop App
 
-Install the app by clicking on download next to releases on the right or click here
+Install the app by clicking on download next to releases on the right or click <a href="https://github.com/meganle414/YouTube-Music-Desktop-App/tree/main/dist_electron/win-unpacked/YouTube Music Desktop App Setup.exe">here</a>
 
 ![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/default.png?raw=true)
 
