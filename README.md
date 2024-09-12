@@ -31,10 +31,23 @@
 
 ### YouTube Music Desktop App
 
-Install the app by clicking on download next to releases on the right or click <a href="https://github.com/meganle414/YouTube-Music-Desktop-App/tree/main/dist_electron/win-unpacked/YouTube Music Desktop App Setup.exe">here</a>
+Listen to music on YouTube Music with this Electron app!
+
+KNOWN BUG: SONGS/VIDEOS MUST BE PAUSED BEFORE EXITING THE APP
 
 ![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/default.png?raw=true)
 
+<p align="right">(<a href="#youtube-music-desktop-app">back to top</a>)</p>
+
+### Installation
+
+Install the app by clicking on download next to releases on the right or click <a href="https://github.com/meganle414/YouTube-Music-Desktop-App/tree/main/dist_electron/YouTube Music Desktop App Setup 1.0.0.exe">here</a> and click Download raw file
+
+Installer Location<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/installer_location.png?raw=true)<br>
+
+Release Location<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/release_location.png?raw=true)<br>
 
 <p align="right">(<a href="#youtube-music-desktop-app">back to top</a>)</p>
 
