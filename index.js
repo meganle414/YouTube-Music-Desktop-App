@@ -1,4 +1,3 @@
-// const { create } = require('domain');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
@@ -13,7 +12,6 @@ let Store;
 })();
 
 function createWindow() {
-    log('Creating window');
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 800,
@@ -36,7 +34,7 @@ function createWindow() {
         document.querySelector('video').volume = ${savedVolume};
     `);
 
-    mainWindow.on('close', () => {
+    mainWindow.on('closed', () => {
         mainWindow = null;
     });
 }
@@ -46,11 +44,9 @@ function initializeApp() {
     store = new Store();
 
     app.whenReady().then(() => {
-        log('App is ready');
         createWindow();
       
         app.on('activate', () => {
-          // Open a window if clicked, despite how many are already open
           if (BrowserWindow.getAllWindows().length === 0) {
             createWindow();
           }
