@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* An Electron.js desktop app for YouTube Music
+* An Electron.js desktop app for YouTube Music. Download-friendly! Keep your music with you even when you're offline!
 
 <img src="images/default.png">
 

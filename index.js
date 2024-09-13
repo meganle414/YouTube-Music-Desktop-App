@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, session, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -22,8 +22,10 @@ function createWindow() {
             preload: path.join(app.getAppPath(), 'preload.js'),
         },
         autoHideMenuBar: true,
-        menuBarVisible: false
+        menuBarVisible: false,
     });
+
+    // mainWindow.setMenu(null);
 
     // Load YouTube Music URL
     mainWindow.loadURL('https://music.youtube.com/');
@@ -52,6 +54,10 @@ function initializeApp() {
           }
         });
       });
+
+    // app.whenReady().then(async () => {
+    //     await session.defaultSession.loadExtension(path.join(app.getAppPath(), 'uBlock Origin 1.59.0_0'));
+    // });
 
     // Save volume setting before app closes
     ipcMain.on('volume-changed', (event, volume) => {
