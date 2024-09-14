@@ -25,8 +25,6 @@ function createWindow() {
         menuBarVisible: false,
     });
 
-    // mainWindow.setMenu(null);
-
     // Load YouTube Music URL
     mainWindow.loadURL('https://music.youtube.com/');
 
@@ -53,11 +51,25 @@ function initializeApp() {
             createWindow();
           }
         });
-      });
+    });
 
     // app.whenReady().then(async () => {
-    //     await session.defaultSession.loadExtension(path.join(app.getAppPath(), 'uBlock Origin 1.59.0_0'));
+    //     await session.defaultSession.loadExtension(path.join(app.getAppPath(), 'uBlock Origin Lite'));
     // });
+
+    app.whenReady().then(async () => {
+        // Load uBlock Origin extension
+        try {
+            await session.defaultSession.loadExtension(path.join(app.getAppPath(), 'uBlock Origin Lite - Chrome Web Store 2024.9.1.1266.crx'));
+            console.log('Extension loaded successfully');
+        } catch (error) {
+            console.error('Failed to load extension:', error.message);
+        }
+    });
+
+    session.defaultSession.getAllExtensions().then(extensions => {
+        console.log('Loaded extensions:', extensions);
+    });
 
     // Save volume setting before app closes
     ipcMain.on('volume-changed', (event, volume) => {
