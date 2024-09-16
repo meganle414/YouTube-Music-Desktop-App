@@ -24,7 +24,6 @@ window.onload = () => {
                     // Look for a new video element
                     const videoElement = document.querySelector('video');
                     if (videoElement) {
-                        console.log('New video element detected.');
                         attachVideoListeners(videoElement);
                     }
                 }
@@ -38,10 +37,8 @@ window.onload = () => {
         const videoElement = document.querySelector('video');
 
         if (videoElement) {
-            console.log('Initial video element found, attaching event listeners.');
             attachVideoListeners(videoElement);
         } else {
-            console.log('Initial video element not found, retrying...');
             setTimeout(setupVideoElementListeners, 1000);  // Retry every second if no video element found
         }
     }
