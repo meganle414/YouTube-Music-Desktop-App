@@ -9,5 +9,14 @@ window.onload = () => {
         videoElement.onvolumechange = () => {
             ipcRenderer.send('volume-changed', videoElement.volume);
         };
+
+        // Monitor video play/pause state changes
+        videoElement.onplay = () => {
+            ipcRenderer.send('state-changed', 'playing');
+        };
+
+        videoElement.onpause = () => {
+            ipcRenderer.send('state-changed', 'paused');
+        };
     }
 };

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, nativeImage, ipcMain } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -27,7 +27,11 @@ function createWindow() {
 
     // Load YouTube Music URL
     mainWindow.loadURL('https://music.youtube.com/');
-
+    
+    // Set thumbbar buttons based on current state
+    const state = store.get('state', 'paused');
+    setThumbarButtons(state);
+    
     // Restore volume settings
     const savedVolume = store.get('volume', 0.5);
     mainWindow.webContents.executeJavaScript(`
@@ -37,6 +41,59 @@ function createWindow() {
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
+}
+
+function setThumbarButtons(state) {
+    let backClickCounter = 0;
+    let backClickTimeout;
+
+    const backButton = {
+        tooltip: 'Back',
+        icon: nativeImage.createFromPath(path.join(app.getAppPath(), 'images/back.png')),
+        click: () => {
+            backClickCounter += 1;
+            // Set a timer to check if it's a double click
+            if (backClickCounter === 1) {
+                backClickTimeout = setTimeout(() => {
+                    // Single click: go to the start of the current video
+                    mainWindow.webContents.executeJavaScript(`
+                        document.querySelector('video').currentTime = 0;
+                    `);
+                    backClickCounter = 0; // Reset counter after single click action
+                }, 500); // 500ms window for double click
+            } else if (backClickCounter === 2) {
+                // Double click: go to the previous song
+                clearTimeout(backClickTimeout); // Cancel single click action
+                mainWindow.webContents.executeJavaScript(`
+                    document.querySelector('.previous-button').click();
+                `);
+                backClickCounter = 0; // Reset counter after double click action
+            }
+        }
+    };
+    
+    const playButton = {
+        tooltip: state === 'paused' ? 'Play' : 'Pause',
+        icon: nativeImage.createFromPath(path.join(app.getAppPath(), state === 'paused' ? 'images/play.png' : 'images/pause.png')),
+        click: () => {
+            const action = state === 'paused' ? 'play' : 'pause';
+            mainWindow.webContents.executeJavaScript(`
+                document.querySelector('video').${action}();
+            `);
+        }
+    };
+
+    const skipButton = {
+        tooltip: 'Skip',
+        icon: nativeImage.createFromPath(path.join(app.getAppPath(), 'images/skip.png')),
+        click: () => {
+            mainWindow.webContents.executeJavaScript(`
+                document.querySelector('.next-button').click();
+            `);
+        }
+    };
+
+    mainWindow.setThumbarButtons([backButton, playButton, skipButton]);
 }
 
 function initializeApp() {
@@ -56,6 +113,11 @@ function initializeApp() {
     // Save volume setting before app closes
     ipcMain.on('volume-changed', (event, volume) => {
         store.set('volume', volume);
+    });
+
+    ipcMain.on('state-changed', (event, state) => {
+        store.set('state', state);
+        setThumbarButtons(state);
     });
 
     app.on('window-all-closed', () => {
