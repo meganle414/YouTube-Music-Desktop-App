@@ -8,6 +8,7 @@ files:
       - dist/**/*
       - node_modules/electron-store/**/*
       - node_modules/**/*
+      - images/**/*
       - package.json
       - index.js
       - preload.js

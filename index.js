@@ -60,7 +60,7 @@ function setThumbarButtons(state) {
                         document.querySelector('video').currentTime = 0;
                     `);
                     backClickCounter = 0; // Reset counter after single click action
-                }, 500); // 500ms window for double click
+                }, 750); // 750ms window for double click
             } else if (backClickCounter === 2) {
                 // Double click: go to the previous song
                 clearTimeout(backClickTimeout); // Cancel single click action
@@ -116,6 +116,7 @@ function initializeApp() {
     });
 
     ipcMain.on('state-changed', (event, state) => {
+        // console.log('Received state:', state);
         store.set('state', state);
         setThumbarButtons(state);
     });
