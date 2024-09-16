@@ -116,7 +116,6 @@ function initializeApp() {
     });
 
     ipcMain.on('state-changed', (event, state) => {
-        // console.log('Received state:', state);
         store.set('state', state);
         setThumbarButtons(state);
     });
