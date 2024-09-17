@@ -35,7 +35,10 @@ Listen to music on YouTube Music with this Electron app! Has media controls simi
 
 KNOWN BUG: SONGS/VIDEOS MUST BE PAUSED BEFORE EXITING THE APP
 
-![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/default.png?raw=true)
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/default.png?raw=true)<br>
+Media Controls<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/play_media_control.png?raw=true)
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/pause_media_control.png?raw=true)
 
 <p align="right">(<a href="#youtube-music-desktop-app">back to top</a>)</p>
 
