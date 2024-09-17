@@ -53,6 +53,11 @@ Release Location<br>
 ![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/release_location.png?raw=true)<br>
 ![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/release_setup.png?raw=true)<br>
 
+Installer<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/install.png?raw=true)<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/install_destination.png?raw=true)<br>
+![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/install_complete.png?raw=true)<br>
+
 <p align="right">(<a href="#youtube-music-desktop-app">back to top</a>)</p>
 
 <!-- CONTACT -->
