@@ -8,41 +8,7 @@ window.onload = () => {
             console.log("YouTube Premium 'No Thanks' button clicked");
         }
     }
-
-    // // Monitor DOM changes and check for the appearance of the "No Thanks" button
-    // const observer = new MutationObserver(() => {
-    //     clickNoThanksButton();
-    // });
-
-    // // Observe the entire document for changes
-    // observer.observe(document.body, {
-    //     childList: true,
-    //     subtree: true,
-    // });
-
-    // // Call the function initially to check if the button is already present
-    // clickNoThanksButton();
-
-    // function observeDOMChanges() {
-    //     // Ensure document.body is available before observing it
-    //     if (!document.body) {
-    //         setTimeout(observeDOMChanges, 100); // Retry after 100ms
-    //         return;
-    //     }
-
-    //     const observer = new MutationObserver(() => {
-    //         clickNoThanksButton();
-    //     });
-
-    //     // Start observing the document body
-    //     observer.observe(document.body, {
-    //         childList: true,
-    //         subtree: true,
-    //     });
-    //     // Initial check to click "No Thanks" if the button is already present
-    //     clickNoThanksButton();
-    // }
-
+    
     function attachVideoListeners(videoElement) {
         // Monitor volume changes
         videoElement.onvolumechange = () => {
@@ -57,20 +23,6 @@ window.onload = () => {
         videoElement.onpause = () => {
             ipcRenderer.send('state-changed', 'paused');
         };
-
-        // Additional check during playback to skip any ad that starts playing
-        const skipAdInterval = setInterval(() => {
-            const isAdPlaying = document.body.classList.contains('ad-showing');
-            if (isAdPlaying) {
-                videoElement.currentTime = videoElement.duration;  // Skip to end of ad
-                console.log('Ad detected during playback and skipped');
-            }
-        }, 1000);  // Check every second while video is playing
-
-        // Clear interval when video is no longer available
-        videoElement.onended = () => {
-            clearInterval(skipAdInterval);
-        };
     }
 
     function observeForVideoChanges() {
@@ -84,6 +36,7 @@ window.onload = () => {
                         attachVideoListeners(videoElement);
                     }
 
+                    // Check if new video found is an ad
                     const adSkipButton = document.querySelector('.ytp-ad-skip-button-container');
                     if (adSkipButton) {
                         // Fast forward the video to skip the ad
@@ -109,9 +62,6 @@ window.onload = () => {
 
     // Start initial video element listener setup
     setupVideoElementListeners();
-
-    // // Start observing for DOM changes
-    // observeDOMChanges();
 
     // Start observing for dynamic changes in the DOM (e.g., new videos)
     observeForVideoChanges();
