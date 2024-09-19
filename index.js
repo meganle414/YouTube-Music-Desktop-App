@@ -1,5 +1,6 @@
-const { app, BrowserWindow, nativeImage, ipcMain } = require('electron');
+const { app, session, BrowserWindow, nativeImage, ipcMain } = require('electron');
 const path = require('path');
+const os = require('os')
 
 let mainWindow;
 let store;
@@ -37,6 +38,20 @@ function createWindow() {
     mainWindow.webContents.executeJavaScript(`
         document.querySelector('video').volume = ${savedVolume};
     `);
+
+    // let isQuitting = false;
+
+    // mainWindow.on('close', (e) => {
+    //     if (!isQuitting) {
+    //         e.preventDefault();
+    //         try {
+    //             isQuitting = true;
+    //             mainWindow.close();
+    //         } catch (error) {
+    //             console.log('Window already closed');
+    //         }
+    //     }
+    // });
 
     mainWindow.on('closed', () => {
         mainWindow = null;
@@ -100,13 +115,52 @@ function initializeApp() {
     // Initialize `Store` after it's imported
     store = new Store();
 
-    app.whenReady().then(() => {
-        createWindow();
+    // app.whenReady().then(() => {
+    //     createWindow();
       
+    //     app.on('activate', () => {
+    //       if (BrowserWindow.getAllWindows().length === 0) {
+    //         createWindow();
+    //       }
+    //     });
+    // });
+
+    // app.whenReady().then(async () => {
+    //     // Load adblocking extension
+    //     try {
+    //         await session.defaultSession.loadExtension(path.join(os.homedir(), 'AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/4.7_0'));
+    //         console.log('Extension loaded successfully');
+    //         createWindow();
+      
+    //         app.on('activate', () => {
+    //         if (BrowserWindow.getAllWindows().length === 0) {
+    //             createWindow();
+    //         }
+    //         });
+    //     } catch (error) {
+    //         console.error('Failed to load extension:', error.message);
+    //     }
+    // });
+
+    app.whenReady().then(async () => {
+        // try {
+        //     const { ElectronBlocker } = require('@cliqz/adblocker-electron');
+        //     const fetch = require('cross-fetch'); // Required for ElectronBlocker
+
+        //     ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
+        //         blocker.enableBlockingInSession(session.defaultSession);
+        //         console.log('Ad-blocking enabled');
+        //     });
+        // } catch (error) {
+        //     console.error('Failed to load blocker:', error);
+        // }
+
+        createWindow();
+
         app.on('activate', () => {
-          if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow();
-          }
+            if (BrowserWindow.getAllWindows().length === 0) {
+                createWindow();
+            }
         });
     });
 
