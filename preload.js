@@ -8,7 +8,7 @@ window.onload = () => {
             console.log("YouTube Premium 'No Thanks' button clicked");
         }
     }
-    
+
     function attachVideoListeners(videoElement) {
         // Monitor volume changes
         videoElement.onvolumechange = () => {
@@ -38,7 +38,8 @@ window.onload = () => {
 
                     // Check if new video found is an ad
                     const adSkipButton = document.querySelector('.ytp-ad-skip-button-container');
-                    if (adSkipButton) {
+                    const adText = document.querySelector('.ytp-ad-text');
+                    if (adSkipButton || adText) {
                         // Fast forward the video to skip the ad
                         videoElement.currentTime = videoElement.duration;  // Skip to end of ad
                         console.log('Ad detected and skipped');

@@ -38,20 +38,6 @@ function createWindow() {
         document.querySelector('video').volume = ${savedVolume};
     `);
 
-    // let isQuitting = false;
-
-    // mainWindow.on('close', (e) => {
-    //     if (!isQuitting) {
-    //         e.preventDefault();
-    //         try {
-    //             isQuitting = true;
-    //             mainWindow.close();
-    //         } catch (error) {
-    //             console.log('Window already closed');
-    //         }
-    //     }
-    // });
-
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
