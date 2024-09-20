@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* An Electron.js desktop app for YouTube Music. Download-friendly! Keep your music with you even when you're offline!
+* An Electron.js desktop app for YouTube Music. Download-friendly! Keep your music with you even when you're offline! Auto skips ads!
 
 <img src="images/default.png">
 
@@ -32,7 +32,7 @@
 ### YouTube Music Desktop App
 
 Listen to music on YouTube Music with this Electron app! Has media controls similar to Windows Media Player so you can easily go to the previous song, play, pause, or skip the song upon app hover!<br>
-<u>Auto skips ads.</u>
+<ins>Auto skips ads!</ins>
 
 KNOWN BUG: SONGS/VIDEOS MUST BE PAUSED BEFORE EXITING THE APP
 
