@@ -32,7 +32,7 @@
 ### YouTube Music Desktop App
 
 Listen to music on YouTube Music with this Electron app! Has media controls similar to Windows Media Player so you can easily go to the previous song, play, pause, or skip the song upon app hover!<br>
-<b>Auto skips ads.</b>
+<u>Auto skips ads.</u>
 
 KNOWN BUG: SONGS/VIDEOS MUST BE PAUSED BEFORE EXITING THE APP
 
