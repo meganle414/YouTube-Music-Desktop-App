@@ -45,7 +45,7 @@ Media Controls<br>
 
 ### Installation
 
-Install the app by clicking on download next to releases on the right or click <a href="https://github.com/meganle414/YouTube-Music-Desktop-App/tree/main/dist_electron/YouTube Music Desktop App Setup 1.0.0.exe">here</a> and click Download raw file. After downloading the setup file, launch the .exe file and follow the steps to install the application.
+Install the app by clicking on download next to releases on the right or click <a href="https://github.com/meganle414/YouTube-Music-Desktop-App/tree/main/dist_electron/YouTube Music Desktop App Setup 1.0.2.exe">here</a> and click Download raw file. After downloading the setup file, launch the .exe file and follow the steps to install the application.
 
 Installer Location<br>
 ![Screenshot](https://github.com/meganle414/YouTube-Music-Desktop-App/blob/main/images/installer_location.png?raw=true)<br>
